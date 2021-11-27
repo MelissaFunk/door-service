@@ -1,3 +1,3 @@
 class ServiceSerializer < ActiveModel::Serializer
-  attributes :id, :agree, :starting_address, :ending_address, :lat, :lon
+  attributes :id, :agreed, :starting_address, :ending_address, :user_id, :driver_id, :service_type, :rating, :price, :message
 end
