@@ -18,8 +18,8 @@ function Login({ setCurrentUser, setCurrentDriver }) {
     <div>
       <button onClick={onUserClick}>For Users</button>
       <button onClick={onDriverClick}>For Drivers</button>
-      {!userClicked ? <UserLogin setCurrentUser={setCurrentUser}/> : null}
-      {!driverClicked ? <DriverLogin setCurrentDriver={setCurrentDriver}/> : null}
+      {userClicked ? <UserLogin setCurrentUser={setCurrentUser}/> : null}
+      {driverClicked ? <DriverLogin setCurrentDriver={setCurrentDriver}/> : null }
     </div>
   )
 }

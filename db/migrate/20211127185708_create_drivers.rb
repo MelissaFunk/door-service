@@ -6,6 +6,8 @@ class CreateDrivers < ActiveRecord::Migration[6.1]
       t.string :password_digest
       t.string :car_type
       t.string :license_plate
+      t.string :service_types
+      t.string :image
 
       t.timestamps
     end

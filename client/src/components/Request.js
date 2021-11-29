@@ -1,0 +1,57 @@
+import { useState } from 'react'
+ 
+function Request({ trigger, setTrigger, driver, currentUser }) {
+  const [clicked, setClicked] = useState(false)
+
+  const handleRequestSubmit = (e) => {
+    e.preventDefault()
+    fetch('/services', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        agreed: false,
+        starting_address: e.target.starting_address.value,
+        ending_address: e.target.ending_address.value,
+        service_type: e.target.service_type.value,
+        message: e.target.message.value,
+        driver_id: driver.id,
+        user_id: currentUser.id
+      })
+    })
+    .then(res => res.json())
+    .then(service => console.log(service))
+    e.target.reset()
+  }
+
+  const handleClick = () => {
+    setClicked(!clicked)
+  }
+
+  return( trigger ? (
+    <div className="request-popup">
+      <div className="request-popup-inner">
+        <button className="close-btn" onClick={() => {
+          setTrigger(false)
+          setClicked(false)
+        }}>X</button>
+        <h2>Request {driver.name}</h2>
+        <form onSubmit={e => handleRequestSubmit(e)}>
+          <input type="text" name="starting_address" placeholder="Starting Address"></input>
+          <input type="text" name="ending_address" placeholder="Ending Address"></input>
+          <label>Service Type: </label>
+          <select name="service_type">
+            {driver.service_types.includes("Disability Support") ? <option value="Disability Support">Disability Support</option> : null}
+            {driver.service_types.includes("Hauling") ? <option value="Hauling">Hauling</option> : null}
+            {driver.service_types.includes("Pets") ? <option value="Pets">Pets</option> : null}
+          </select>
+          <textarea name="message" placeholder="Message"></textarea>
+          <button onClick={handleClick}>Send Request</button>
+        </form>
+        {clicked ? <p>Thank you for your request! Your driver will accept your request shortly in your <a href="my-routes">routes</a>.</p> : null}
+      </div>
+    </div>
+  ) : null
+  )
+}
+
+export default Request

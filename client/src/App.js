@@ -4,6 +4,7 @@ import NavBar from './components/NavBar'
 import Login from './components/Login'
 import Drivers from './components/Drivers'
 import Services from './components/Services'
+import Request from './components/Request'
 
 function App() {
   const [currentUser, setCurrentUser] = useState({})
@@ -33,11 +34,12 @@ function App() {
       {currentUser.name || currentDriver.name ? <NavBar /> : null}
       <Switch>
         <Route exact path="/"><Login setCurrentUser={setCurrentUser} setCurrentDriver={setCurrentDriver}/></Route>
-        <Route exact path="/all-drivers"><Drivers /></Route>
+        <Route exact path="/all-drivers"><Drivers currentUser={currentUser}/></Route>
         <Route exact path="/my-services"><Services /></Route>
+        <Route exact path="/request"><Request /></Route>
       </Switch>
     </div>
-  );
+  )
 }
 
 export default App;

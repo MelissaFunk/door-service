@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import DriverCard from './DriverCard'
 
-function Drivers() {
+function Drivers({ currentUser }) {
   const [drivers, setDrivers] = useState([])
   const [filterBy, setFilterBy] = useState("All")
 
@@ -20,14 +20,14 @@ function Drivers() {
       if(filterBy === "All") {
         return true
       } else {
-        return driver.available_services.includes(filterBy)
+        return driver.service_types.includes(filterBy)
       }
     })
   }
 
   const displayedDrivers = () => {
     return filteredDrivers().map(driver =>
-      <DriverCard driver={driver} key={driver.id}/>
+      <DriverCard driver={driver} currentUser={currentUser} key={driver.id}/>
     )
   }
 

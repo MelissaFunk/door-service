@@ -1,5 +1,5 @@
 class DriverSerializer < ActiveModel::Serializer
-  attributes :id, :name, :username, :password, :car_type, :license_plate, :image, :avg_rating, :available_services
+  attributes :id, :name, :username, :password, :car_type, :license_plate, :image, :service_types, :avg_rating
   
   def avg_rating
     services = self.object.services.select do |serv|
@@ -9,7 +9,4 @@ class DriverSerializer < ActiveModel::Serializer
     ratings.then{ |r| r.sum.to_f / r.size }.to_s
   end
 
-  def available_services
-    self.object.services.map(&:service_type).uniq
-  end
 end
