@@ -3,8 +3,9 @@ import { useEffect, useState } from 'react'
 import NavBar from './components/NavBar'
 import Login from './components/Login'
 import Drivers from './components/Drivers'
-import Services from './components/Services'
+import Profile from './components/Profile'
 import Request from './components/Request'
+import Services from './components/Services'
 
 function App() {
   const [currentUser, setCurrentUser] = useState({})
@@ -27,16 +28,16 @@ function App() {
       }
     })
   }, [])
-  
 
   return (
     <div>
-      {currentUser.name || currentDriver.name ? <NavBar /> : null}
+      {currentUser.name || currentDriver.name ? <NavBar currentUser={currentUser} currentDriver={currentDriver} setCurrentUser={setCurrentUser} setCurrentDriver={setCurrentDriver}/> : null}
       <Switch>
         <Route exact path="/"><Login setCurrentUser={setCurrentUser} setCurrentDriver={setCurrentDriver}/></Route>
         <Route exact path="/all-drivers"><Drivers currentUser={currentUser}/></Route>
-        <Route exact path="/my-services"><Services /></Route>
         <Route exact path="/request"><Request /></Route>
+        <Route exact path="/my-services"><Services currentUser={currentUser}/></Route>
+        <Route exact path="/profile"><Profile /></Route>
       </Switch>
     </div>
   )

@@ -28,8 +28,8 @@ function Request({ trigger, setTrigger, driver, currentUser }) {
   }
 
   return( trigger ? (
-    <div className="request-popup">
-      <div className="request-popup-inner">
+    <div className="popup">
+      <div className="popup-inner">
         <button className="close-btn" onClick={() => {
           setTrigger(false)
           setClicked(false)
@@ -47,7 +47,7 @@ function Request({ trigger, setTrigger, driver, currentUser }) {
           <textarea name="message" placeholder="Message"></textarea>
           <button onClick={handleClick}>Send Request</button>
         </form>
-        {clicked ? <p>Thank you for your request! Your driver will accept your request shortly in your <a href="my-routes">routes</a>.</p> : null}
+        {clicked ? <p>Thank you for your request! Your driver will accept your request shortly in your <a href="current-service">current services</a>.</p> : null}
       </div>
     </div>
   ) : null
