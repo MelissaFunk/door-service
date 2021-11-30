@@ -31,7 +31,7 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.permit(:user_id, :driver_id, :agreed, :starting_address, :ending_address, :service_type, :rating, :price, :message)
+    params.permit(:user_id, :driver_id, :status, :starting_address, :ending_address, :service_type, :rating, :price, :message)
   end
 
   def render_unprocessable_response(invalid)

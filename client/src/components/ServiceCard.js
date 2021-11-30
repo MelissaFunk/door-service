@@ -23,8 +23,8 @@ function ServiceCard({ service }) {
     <p>Ending address: {service.ending_address}</p>
     <p>Message: {service.message}</p>
     {service.price ? <p>Price: ${service.price}</p> : null}
-    {service.rating ? <p>Rating: {service.rating}</p> : null}
-    {service.price ? 
+    {service.status === "Completed" ? <p>Rating: {service.rating}</p> : null}
+    {service.status === "Current" ? 
       <div>
       <label>Rate Service: </label>
       <select name="rating" onChange={e => handleRating(e)}>
