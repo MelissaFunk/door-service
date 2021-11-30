@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_29_223527) do
+ActiveRecord::Schema.define(version: 2021_11_27_185838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2021_11_29_223527) do
   end
 
   create_table "services", force: :cascade do |t|
-    t.boolean "agreed"
     t.string "starting_address"
     t.string "ending_address"
     t.bigint "user_id", null: false
@@ -37,9 +36,9 @@ ActiveRecord::Schema.define(version: 2021_11_29_223527) do
     t.integer "rating"
     t.integer "price"
     t.string "message"
+    t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "rated"
     t.index ["driver_id"], name: "index_services_on_driver_id"
     t.index ["user_id"], name: "index_services_on_user_id"
   end

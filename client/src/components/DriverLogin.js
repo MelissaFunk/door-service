@@ -23,7 +23,7 @@ function DriverLogin({ setCurrentDriver }) {
       if(res.ok) {
         res.json().then(driver => {
           setCurrentDriver(driver)
-          history.push('/my-services')
+          history.push('/my-requests')
         })
       } else {
         res.json().then(errorData => setErrors(errorData.errors))
@@ -44,7 +44,7 @@ function DriverLogin({ setCurrentDriver }) {
       if(res.ok) {
         res.json().then(driver => {
           setCurrentDriver(driver)
-          history.push('/my-services')
+          history.push('/my-requests')
         })
       } else {
         res.json().then(errorData => setErrors(errorData.errors))

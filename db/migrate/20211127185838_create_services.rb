@@ -1,7 +1,6 @@
 class CreateServices < ActiveRecord::Migration[6.1]
   def change
     create_table :services do |t|
-      t.boolean :agreed
       t.string :starting_address
       t.string :ending_address
       t.belongs_to :user, null: false, foreign_key: true
@@ -10,6 +9,7 @@ class CreateServices < ActiveRecord::Migration[6.1]
       t.integer :rating
       t.integer :price
       t.string :message
+      t.string :status
 
       t.timestamps
     end

@@ -6,6 +6,7 @@ import Drivers from './components/Drivers'
 import Profile from './components/Profile'
 import Request from './components/Request'
 import Services from './components/Services'
+import ServiceRequests from './components/ServiceRequests'
 
 function App() {
   const [currentUser, setCurrentUser] = useState({})
@@ -37,6 +38,7 @@ function App() {
         <Route exact path="/all-drivers"><Drivers currentUser={currentUser}/></Route>
         <Route exact path="/request"><Request /></Route>
         <Route exact path="/my-services"><Services currentUser={currentUser}/></Route>
+        <Route exact path="/my-requests"><ServiceRequests currentDriver={currentDriver}/></Route>
         <Route exact path="/profile"><Profile /></Route>
       </Switch>
     </div>

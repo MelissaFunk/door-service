@@ -9,7 +9,7 @@ function Request({ trigger, setTrigger, driver, currentUser }) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        agreed: false,
+        status: "Pending",
         starting_address: e.target.starting_address.value,
         ending_address: e.target.ending_address.value,
         service_type: e.target.service_type.value,
@@ -47,7 +47,7 @@ function Request({ trigger, setTrigger, driver, currentUser }) {
           <textarea name="message" placeholder="Message"></textarea>
           <button onClick={handleClick}>Send Request</button>
         </form>
-        {clicked ? <p>Thank you for your request! Your driver will accept your request shortly in your <a href="current-service">current services</a>.</p> : null}
+        {clicked ? <p>Thank you for your request! Your driver will accept your request shortly in your <a href="my-services">current services</a>.</p> : null}
       </div>
     </div>
   ) : null

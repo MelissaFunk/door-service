@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import ServiceCard from './ServiceCard'
+import ServiceRequestCard from './ServiceRequestCard'
 
-function Services({ currentUser }) {
+function ServiceRequests({ currentDriver }) {
   const [services, setServices] = useState([])
 
   useEffect(() => {
@@ -12,19 +12,19 @@ function Services({ currentUser }) {
 
   const currentServices = () => {
     return services.filter(service => {
-      return (service.user_id === currentUser.id) && (service.status === "Current")
+      return (service.driver_id === currentDriver.id) && (service.status === "Current")
     })
   }
 
   const pendingServices = () => {
     return services.filter(service => {
-      return (service.user_id === currentUser.id) && (service.status === "Pending")
+      return (service.driver_id === currentDriver.id) && (service.status === "Pending")
     })
   }
 
   const completedServices = () => {
     return services.filter(service => {
-      return (service.user_id === currentUser.id) && (service.status === "Completed")
+      return (service.driver_id === currentDriver.id) && (service.status === "Completed")
     })
   }
 
@@ -33,20 +33,20 @@ function Services({ currentUser }) {
     <div>
       <h1>Current Service</h1>
       {currentServices().map(service =>
-        <ServiceCard service={service} key={service.id}/>
+        <ServiceRequestCard service={service} key={service.id}/>
       )}
 
       <h1>Pending Services</h1>
       {pendingServices().map(service =>
-        <ServiceCard service={service} key={service.id}/>
+        <ServiceRequestCard service={service} key={service.id}/>
       )}
 
       <h1>Completed Services</h1>
       {completedServices().map(service =>
-        <ServiceCard service={service} key={service.id}/>
+        <ServiceRequestCard service={service} key={service.id}/>
       )}
     </div>
   )
 }
 
-export default Services
+export default ServiceRequests

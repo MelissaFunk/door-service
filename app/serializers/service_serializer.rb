@@ -1,5 +1,5 @@
 class ServiceSerializer < ActiveModel::Serializer
-  attributes :id, :agreed, :starting_address, :ending_address, :user_id, :driver_id, :service_type, :rating, :price, :message, :driver, :car_type, :license_plate, :driver_image, :rated
+  attributes :id, :status, :starting_address, :ending_address, :user_id, :driver_id, :service_type, :rating, :price, :message, :driver, :car_type, :license_plate, :driver_image, :user, :user_image
 
   def driver
     self.object.driver.name
@@ -15,6 +15,14 @@ class ServiceSerializer < ActiveModel::Serializer
 
   def driver_image
     self.object.driver.image
+  end
+
+  def user
+    self.object.user.name
+  end
+
+  def user_image
+    self.object.user.image
   end
 
 end
