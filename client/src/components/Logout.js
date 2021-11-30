@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 function Logout({ trigger, setTrigger, handleLogout }) {
 
@@ -6,7 +7,7 @@ function Logout({ trigger, setTrigger, handleLogout }) {
       <div className="popup-inner">
         <button className="close-btn" onClick={() => setTrigger(false)}>X</button>
         <h1>Are you sure you want to logout?</h1>
-        <button className="create-btn" onClick={handleLogout}>Logout</button>
+        <Link to="/"><button className="create-btn" onClick={handleLogout}>Logout</button></Link>
       </div>
     </div>
   ): null )

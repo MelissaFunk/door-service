@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom"
 import Logout from './Logout'
-import { useHistory } from "react-router"
 import { useState } from "react"
 
 function NavBar({ currentUser, currentDriver, setCurrentUser, setCurrentDriver }) {
   const [buttonPopup, setButtonPopup] = useState(false)
-  const history = useHistory()
 
   const handleUserLogout = () => {
       fetch("/user-logout" , {
@@ -14,7 +12,6 @@ function NavBar({ currentUser, currentDriver, setCurrentUser, setCurrentDriver }
       .then(resp => {
           if (resp.ok) {
               setCurrentUser({})
-              history.push("/")
           }
       })
     }
@@ -26,7 +23,6 @@ function NavBar({ currentUser, currentDriver, setCurrentUser, setCurrentDriver }
       .then(resp => {
           if (resp.ok) {
               setCurrentDriver({})
-              history.push("/")
           }
       })
     }

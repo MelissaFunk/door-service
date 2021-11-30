@@ -1,4 +1,4 @@
-function ServiceCard({ service }) {
+function ServiceCard({ service, onDeleteService }) {
 
   const handleRating = (e) => {
     fetch(`/services/${service.id}`, {
@@ -11,6 +11,14 @@ function ServiceCard({ service }) {
     })
     .then(res => res.json())
     .then(res => console.log(res))
+  }
+
+  const handleDeleteService = () => {
+    fetch(`/services/${service.id}`, {
+      method: 'DELETE'
+    })
+    .then(res => res.json())
+    .then(onDeleteService)
   }
 
   return(
@@ -36,6 +44,7 @@ function ServiceCard({ service }) {
       </select>
       </div>
     : null}
+    {service.status === "Pending" || service.status === "Current" ? <button onClick={handleDeleteService}>Cancel Service</button> : null}
   </div>
   )
 }

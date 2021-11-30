@@ -8,7 +8,11 @@ function Services({ currentUser }) {
     fetch('/services')
     .then(res => res.json())
     .then(setServices)
-  }, [])
+  }, [services])
+
+  function onDeleteService(serviceToDelete) {
+    setServices(services.filter(service => service.id !== serviceToDelete.id))
+  }
 
   const currentServices = () => {
     return services.filter(service => {
@@ -28,17 +32,16 @@ function Services({ currentUser }) {
     })
   }
 
-
   return (
     <div>
       <h1>Current Service</h1>
-      {currentServices().map(service =>
-        <ServiceCard service={service} key={service.id}/>
+      {currentServices().map(service => 
+        <ServiceCard service={service} key={service.id} onDeleteService={onDeleteService}/>
       )}
 
       <h1>Pending Services</h1>
       {pendingServices().map(service =>
-        <ServiceCard service={service} key={service.id}/>
+        <ServiceCard service={service} key={service.id} onDeleteService={onDeleteService}/>
       )}
 
       <h1>Completed Services</h1>
