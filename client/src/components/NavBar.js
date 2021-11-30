@@ -29,12 +29,13 @@ function NavBar({ currentUser, currentDriver, setCurrentUser, setCurrentDriver }
 
   return(
     <div>
-      {currentUser.name ? <img src={currentUser.image} alt={currentUser.name}/> : null}
-      {currentDriver.name ? <img src={currentDriver.image} alt={currentDriver.name}/> : null}
+      {/* {currentUser.image ? <img src={currentUser.image} alt={currentUser.name}/> : <img src="https://i.imgur.com/DhLN1cW.jpg" alt="default" />} */}
+      {/* {currentDriver.name ? <img src={currentDriver.image} alt={currentDriver.name}/> : null} */}
       {currentUser.name ? <Link to ="/all-drivers"><button>Drivers</button></Link> : null}
       {currentUser.name ? <Link to="/my-services"><button>Services</button></Link> : null}
       {currentDriver.name ? <Link to="/my-requests"><button>Requests</button></Link> : null}
-      <Link to ="/profile"><button>Profile</button></Link>
+      {currentUser.name ? <Link to ="/user-profile"><button>Profile</button></Link> : null}
+      {currentDriver.name ? <Link to ="/driver-profile"><button>Profile</button></Link> : null}
       <button onClick={() => setButtonPopup(true)}>Logout</button>
       <Logout trigger={buttonPopup} setTrigger={setButtonPopup} handleLogout={currentUser.name ? handleUserLogout : handleDriverLogout}></Logout>
     </div>
