@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 2021_11_27_185838) do
     t.integer "price"
     t.string "message"
     t.string "status"
+    t.date "date"
+    t.time "time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["driver_id"], name: "index_services_on_driver_id"

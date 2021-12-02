@@ -10,6 +10,8 @@ class CreateServices < ActiveRecord::Migration[6.1]
       t.integer :price
       t.string :message
       t.string :status
+      t.date :date
+      t.time :time
 
       t.timestamps
     end

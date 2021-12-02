@@ -15,7 +15,9 @@ function Request({ trigger, setTrigger, driver, currentUser }) {
         service_type: e.target.service_type.value,
         message: e.target.message.value,
         driver_id: driver.id,
-        user_id: currentUser.id
+        user_id: currentUser.id,
+        date: e.target.date.value,
+        time: e.target.time.value
       })
     })
     .then(res => res.json())
@@ -36,14 +38,16 @@ function Request({ trigger, setTrigger, driver, currentUser }) {
         }}>X</button>
         <h2>Request {driver.name}</h2>
         <form onSubmit={e => handleRequestSubmit(e)}>
-          <input type="text" name="starting_address" placeholder="Starting Address"></input>
-          <input type="text" name="ending_address" placeholder="Ending Address"></input>
-          <label>Service Type: </label>
+        <label>Service Type: </label>
           <select name="service_type">
             {driver.service_types.includes("Disability Support") ? <option value="Disability Support">Disability Support</option> : null}
             {driver.service_types.includes("Hauling") ? <option value="Hauling">Hauling</option> : null}
             {driver.service_types.includes("Pets") ? <option value="Pets">Pets</option> : null}
           </select>
+          <input type="text" name="starting_address" placeholder="Starting Address"></input>
+          <input type="text" name="ending_address" placeholder="Ending Address"></input>
+          <input type="date" name="date"></input>
+          <input type="time" name="time"></input> PST
           <textarea name="message" placeholder="Message"></textarea>
           <button onClick={handleClick}>Send Request</button>
         </form>

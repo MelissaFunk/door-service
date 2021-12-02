@@ -29,8 +29,8 @@ function NavBar({ currentUser, currentDriver, setCurrentUser, setCurrentDriver }
 
   return(
     <div>
-      {/* {currentUser.image ? <img src={currentUser.image} alt={currentUser.name}/> : <img src="https://i.imgur.com/DhLN1cW.jpg" alt="default" />} */}
-      {/* {currentDriver.name ? <img src={currentDriver.image} alt={currentDriver.name}/> : null} */}
+      {currentUser.image ? <img src={currentUser.image} alt={currentUser.name}/> : <img src="https://i.imgur.com/DhLN1cW.jpg" alt="default" />}
+      {currentDriver.name ? <img src={currentDriver.image} alt={currentDriver.name}/> : null}
       {currentUser.name ? <Link to ="/all-drivers"><button>Drivers</button></Link> : null}
       {currentUser.name ? <Link to="/my-services"><button>Services</button></Link> : null}
       {currentDriver.name ? <Link to="/my-requests"><button>Requests</button></Link> : null}

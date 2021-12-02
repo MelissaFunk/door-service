@@ -1,3 +1,5 @@
+import dateFormat from 'dateformat'
+
 function ServiceCard({ service, onDeleteService }) {
 
   const handleRating = (e) => {
@@ -29,6 +31,8 @@ function ServiceCard({ service, onDeleteService }) {
     <p>License Plate: {service.license_plate}</p>
     <p>Starting address: {service.starting_address}</p>
     <p>Ending address: {service.ending_address}</p>
+    <p>Date: {dateFormat(service.date, "UTC:mmmm dS, yyyy")}</p>
+    <p>Time: {dateFormat(service.time, "UTC:h:MM TT")}</p>
     <p>Message: {service.message}</p>
     {service.price ? <p>Price: ${service.price}</p> : null}
     {service.status === "Completed" ? <p>Rating: {service.rating}</p> : null}

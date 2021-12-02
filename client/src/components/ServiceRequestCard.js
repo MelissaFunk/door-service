@@ -1,3 +1,5 @@
+import dateFormat from 'dateformat'
+
 function ServiceRequestCard({ service }) {
 
   const handlePrice = (e) => {
@@ -19,6 +21,8 @@ function ServiceRequestCard({ service }) {
     <p>User: {service.user}</p>
     <p>Starting address: {service.starting_address}</p>
     <p>Ending address: {service.ending_address}</p>
+    <p>Date: {dateFormat(service.date, "UTC:mmmm dS, yyyy")}</p>
+    <p>Time: {dateFormat(service.time, "UTC:h:MM TT")}</p>
     <p>Message: {service.message}</p>
     {service.price ? <p>Price: ${service.price}</p> : 
     <div>
