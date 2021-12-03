@@ -7,12 +7,22 @@ function DriverLogin({ setCurrentDriver }) {
   const [nameSign, setNameSign] = useState('')
   const [userSign, setUserSign] = useState('')
   const [passSign, setPassSign] = useState('')
+  const [image, setImage] = useState('')
+  const [carType, setCarType] = useState('')
+  const [licensePlate, setLicensePlate] = useState('')
+  const [disabilityIsChecked, setDisabilityIsChecked] = useState(false)
+  const [disability, setDisability] = useState('')
+  const [petsIsChecked, setPetsIsChecked] = useState(false)
+  const [pets, setPets] = useState('')
+  const [haulingIsChecked, setHaulingIsChecked] = useState(false)
+  const [hauling, setHauling] = useState('')
   const [errors, setErrors] = useState([])
   const history = useHistory()
-
+ 
   function onSignupSubmit(e) {
     e.preventDefault()
-    const driver = { name: nameSign, username: userSign, password: passSign}
+
+    const driver = { name: nameSign, username: userSign, password: passSign, image: image, car_type: carType, license_plate: licensePlate, service_types: [disability, pets, hauling].join(", ")}
   
     fetch('/drivers', {
       method: 'POST',
@@ -52,6 +62,21 @@ function DriverLogin({ setCurrentDriver }) {
     })
   }
 
+  const handleDisabilityChecked = (e) => {
+    setDisabilityIsChecked(!disabilityIsChecked)
+    setDisability(e.target.value)
+  }
+
+  const handlePetsChecked = (e) => {
+    setPetsIsChecked(!petsIsChecked)
+    setPets(e.target.value)
+  }
+
+  const handleHaulingChecked = (e) => {
+    setHaulingIsChecked(!haulingIsChecked)
+    setHauling(e.target.value)
+  }
+
   return (
     <div>
       <div>
@@ -67,6 +92,12 @@ function DriverLogin({ setCurrentDriver }) {
           <input placeholder=" First and Last Name"type="text" value={nameSign} onChange={e => setNameSign(e.target.value)}></input>
           <input placeholder=" Username" type="text" value={userSign} onChange={e => setUserSign(e.target.value)}></input>
           <input placeholder=" Password" type="password" value={passSign} onChange={e => setPassSign(e.target.value)}></input>
+          <input placeholder=" Img URL" type="text" value={image} onChange={e => setImage(e.target.value)}></input>
+          <input placeholder=" Car Type" type="text" value={carType} onChange={e => setCarType(e.target.value)}></input>
+          <input placeholder=" License Plate" type="text" value={licensePlate} onChange={e => setLicensePlate(e.target.value)}></input>
+          <input type="checkbox" value="Disability Support" checked={disabilityIsChecked} onChange={e => handleDisabilityChecked(e)}/>Disability Support
+          <input type="checkbox" value="Hauling" checked={haulingIsChecked} onChange={e => handleHaulingChecked(e)}/>Hauling
+          <input type="checkbox" value="Pets" checked={petsIsChecked} onChange={e => handlePetsChecked(e)}/>Pets
           <button type="submit">Signup</button>
         </form>
       </div>

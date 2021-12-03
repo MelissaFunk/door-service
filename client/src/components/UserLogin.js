@@ -7,12 +7,13 @@ function UserLogin({ setCurrentUser }) {
   const [nameSign, setNameSign] = useState('')
   const [userSign, setUserSign] = useState('')
   const [passSign, setPassSign] = useState('')
+  const [imageSign, setImageSign] = useState('')
   const [errors, setErrors] = useState([])
   const history = useHistory()
-
+ 
   function onSignupSubmit(e) {
     e.preventDefault()
-    const user = { name: nameSign, username: userSign, password: passSign}
+    const user = { name: nameSign, username: userSign, password: passSign, image: imageSign}
   
     fetch('/users', {
       method: 'POST',
@@ -67,6 +68,7 @@ function UserLogin({ setCurrentUser }) {
           <input placeholder=" First and Last Name"type="text" value={nameSign} onChange={e => setNameSign(e.target.value)}></input>
           <input placeholder=" Username" type="text" value={userSign} onChange={e => setUserSign(e.target.value)}></input>
           <input placeholder=" Password" type="password" value={passSign} onChange={e => setPassSign(e.target.value)}></input>
+          <input placeholder=" Img URL" type="text" value={imageSign} onChange={e => setImageSign(e.target.value)}></input>
           <button type="submit">Signup</button>
         </form>
       </div>

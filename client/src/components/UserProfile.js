@@ -13,6 +13,7 @@ function UserProfile({ currentUser }) {
         name: e.target.name.value, 
         username: e.target.username.value,
         password: e.target.password.value,
+        image: e.target.image.value
       })
     })
     .then(res => res.json())
@@ -49,12 +50,16 @@ function UserProfile({ currentUser }) {
         <label><b>Password: </b></label>
         <input type="password" name="password" value={updatedUser.password} onChange={changeInput}/>
         <br />< br/>
+        <label><b>Profile Image: </b></label>
+        <input type="text" name="image" value={updatedUser.image} onChange={changeInput}/>
+        <br />< br/>
         <button>Save</button>
       </form> <br />
       <button onClick={onClick}>Cancel</button>
       </div>
       : 
       <div>
+        <img src={updatedUser.image} alt={updatedUser.name}/>
         <label><b>Name: </b>{updatedUser.name}  </label><br />< br/>
         <label><b>Username: </b>{updatedUser.username}  </label><br />< br/>
         <label><b>Password: </b>******</label><br />< br/>

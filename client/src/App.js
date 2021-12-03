@@ -20,7 +20,7 @@ function App() {
         res.json().then(user => setCurrentUser(user))
       }
     })
-  }, [])
+  }, [currentUser])
 
   useEffect(() => {
     fetch('/driver-auth')
@@ -29,7 +29,7 @@ function App() {
         res.json().then(driver => setCurrentDriver(driver))
       }
     })
-  }, [])
+  }, [currentDriver])
 
   return (
     <div>

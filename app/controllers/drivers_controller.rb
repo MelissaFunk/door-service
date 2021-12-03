@@ -33,7 +33,7 @@ class DriversController < ApplicationController
   private
   
   def driver_params
-    params.permit(:name, :username, :password)
+    params.permit(:name, :username, :password, :image, :car_type, :license_plate, :service_types)
   end
 
   def render_unprocessable_response(invalid)
