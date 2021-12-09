@@ -7,6 +7,7 @@ function DriverLogin({ setCurrentDriver }) {
   const [nameSign, setNameSign] = useState('')
   const [userSign, setUserSign] = useState('')
   const [passSign, setPassSign] = useState('')
+  const [imageSign, setImageSign] = useState('')
   const [carType, setCarType] = useState('')
   const [licensePlate, setLicensePlate] = useState('')
   const [disabilityIsChecked, setDisabilityIsChecked] = useState(false)
@@ -21,7 +22,7 @@ function DriverLogin({ setCurrentDriver }) {
   function onSignupSubmit(e) {
     e.preventDefault()
 
-    const driver = { name: nameSign, username: userSign, password: passSign, car_type: carType, license_plate: licensePlate, service_types: [disability, pets, hauling].join(", ")}
+    const driver = { name: nameSign, username: userSign, password: passSign, car_type: carType, license_plate: licensePlate, service_types: [disability, pets, hauling].join(", "), image: imageSign}
   
     fetch('/drivers', {
       method: 'POST',
@@ -61,6 +62,15 @@ function DriverLogin({ setCurrentDriver }) {
     })
   }
 
+  const handleImageInput = (e) => {
+    let files = e.target.files
+    let reader = new FileReader()
+    reader.readAsDataURL(files[0])
+    reader.onload = (e) => {
+      setImageSign(e.target.result)
+    }
+  }
+
   const handleDisabilityChecked = (e) => {
     setDisabilityIsChecked(!disabilityIsChecked)
     setDisability(e.target.value)
@@ -95,7 +105,9 @@ function DriverLogin({ setCurrentDriver }) {
           <input placeholder=" License Plate" type="text" value={licensePlate} onChange={e => setLicensePlate(e.target.value)}></input>
           <input type="checkbox" value="Disability Support" checked={disabilityIsChecked} onChange={e => handleDisabilityChecked(e)}/>Disability Support
           <input type="checkbox" value="Hauling" checked={haulingIsChecked} onChange={e => handleHaulingChecked(e)}/>Hauling
-          <input type="checkbox" value="Pets" checked={petsIsChecked} onChange={e => handlePetsChecked(e)}/>Pets
+          <input type="checkbox" value="Pets" checked={petsIsChecked} onChange={e => handlePetsChecked(e)}/>Pets 
+          <label> Profile Image: </label>
+          <input type="file" accept="image/*" onChange={e => handleImageInput(e)}/>
           <button type="submit">Signup</button>
         </form>
       </div>

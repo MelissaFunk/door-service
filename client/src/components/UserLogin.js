@@ -1,6 +1,5 @@
-import { useState} from "react"
+import { useState } from "react"
 import { useHistory } from "react-router-dom"
-import ProfileImage from "./ProfileImage"
 
 function UserLogin({ setCurrentUser }) {
   const [userLog, setUserLog] = useState('')
@@ -8,13 +7,13 @@ function UserLogin({ setCurrentUser }) {
   const [nameSign, setNameSign] = useState('')
   const [userSign, setUserSign] = useState('')
   const [passSign, setPassSign] = useState('')
+  const [imageSign, setImageSign] = useState('')
   const [errors, setErrors] = useState([])
-  const [buttonPopup, setButtonPopup] = useState(false)
   const history = useHistory()
  
   function onSignupSubmit(e) {
     e.preventDefault()
-    const user = { name: nameSign, username: userSign, password: passSign}
+    const user = { name: nameSign, username: userSign, password: passSign, image: imageSign}
   
     fetch('/users', {
       method: 'POST',
@@ -25,6 +24,7 @@ function UserLogin({ setCurrentUser }) {
       if(res.ok) {
         res.json().then(user => {
           setCurrentUser(user)
+          history.push('/all-drivers')
         })
       } else {
         res.json().then(errorData => setErrors(errorData.errors))
@@ -53,6 +53,15 @@ function UserLogin({ setCurrentUser }) {
     })
   }
 
+  const handleImageInput = (e) => {
+    let files = e.target.files
+    let reader = new FileReader()
+    reader.readAsDataURL(files[0])
+    reader.onload = (e) => {
+      setImageSign(e.target.result)
+    }
+  }
+
   return (
     <div>
       <div>
@@ -68,8 +77,9 @@ function UserLogin({ setCurrentUser }) {
           <input placeholder=" First and Last Name"type="text" value={nameSign} onChange={e => setNameSign(e.target.value)}></input>
           <input placeholder=" Username" type="text" value={userSign} onChange={e => setUserSign(e.target.value)}></input>
           <input placeholder=" Password" type="password" value={passSign} onChange={e => setPassSign(e.target.value)}></input>
-          <button type="submit" onClick={() => setButtonPopup(true)}>Signup</button>
-          <ProfileImage trigger={buttonPopup} setTrigger={setButtonPopup}></ProfileImage>
+          <label> Profile Image: </label>
+          <input type="file" accept="image/*" onChange={e => handleImageInput(e)}/>
+          <button type="submit">Signup</button>
         </form>
       </div>
 
