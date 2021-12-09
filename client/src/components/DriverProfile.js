@@ -12,8 +12,7 @@ function DriverProfile({ currentDriver }) {
       body: JSON.stringify({ 
         name: e.target.name.value, 
         username: e.target.username.value,
-        password: e.target.password.value,
-        image: e.target.image.value
+        password: e.target.password.value
       })
     })
     .then(res => res.json())
@@ -50,16 +49,12 @@ function DriverProfile({ currentDriver }) {
         <label><b>Password: </b></label>
         <input type="password" name="password" value={updatedDriver.password} onChange={changeInput}/>
         <br />< br/>
-        <label><b>Profile Image: </b></label>
-        <input type="text" name="image" value={updatedDriver.image} onChange={changeInput}/>
-        <br />< br/>
         <button>Save</button>
       </form> <br />
       <button onClick={onClick}>Cancel</button>
       </div>
       : 
       <div>
-        <img src={updatedDriver.image} alt={updatedDriver.name}/>
         <label><b>Name: </b>{updatedDriver.name}  </label><br />< br/>
         <label><b>Username: </b>{updatedDriver.username}  </label><br />< br/>
         <label><b>Password: </b>******</label><br />< br/>

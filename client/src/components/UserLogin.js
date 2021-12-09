@@ -1,5 +1,6 @@
 import { useState} from "react"
 import { useHistory } from "react-router-dom"
+import ProfileImage from "./ProfileImage"
 
 function UserLogin({ setCurrentUser }) {
   const [userLog, setUserLog] = useState('')
@@ -7,13 +8,13 @@ function UserLogin({ setCurrentUser }) {
   const [nameSign, setNameSign] = useState('')
   const [userSign, setUserSign] = useState('')
   const [passSign, setPassSign] = useState('')
-  const [imageSign, setImageSign] = useState('')
   const [errors, setErrors] = useState([])
+  const [buttonPopup, setButtonPopup] = useState(false)
   const history = useHistory()
  
   function onSignupSubmit(e) {
     e.preventDefault()
-    const user = { name: nameSign, username: userSign, password: passSign, image: imageSign}
+    const user = { name: nameSign, username: userSign, password: passSign}
   
     fetch('/users', {
       method: 'POST',
@@ -24,7 +25,6 @@ function UserLogin({ setCurrentUser }) {
       if(res.ok) {
         res.json().then(user => {
           setCurrentUser(user)
-          history.push('/all-drivers')
         })
       } else {
         res.json().then(errorData => setErrors(errorData.errors))
@@ -68,8 +68,8 @@ function UserLogin({ setCurrentUser }) {
           <input placeholder=" First and Last Name"type="text" value={nameSign} onChange={e => setNameSign(e.target.value)}></input>
           <input placeholder=" Username" type="text" value={userSign} onChange={e => setUserSign(e.target.value)}></input>
           <input placeholder=" Password" type="password" value={passSign} onChange={e => setPassSign(e.target.value)}></input>
-          <input placeholder=" Img URL" type="text" value={imageSign} onChange={e => setImageSign(e.target.value)}></input>
-          <button type="submit">Signup</button>
+          <button type="submit" onClick={() => setButtonPopup(true)}>Signup</button>
+          <ProfileImage trigger={buttonPopup} setTrigger={setButtonPopup}></ProfileImage>
         </form>
       </div>
 

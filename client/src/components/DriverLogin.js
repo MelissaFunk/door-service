@@ -7,7 +7,6 @@ function DriverLogin({ setCurrentDriver }) {
   const [nameSign, setNameSign] = useState('')
   const [userSign, setUserSign] = useState('')
   const [passSign, setPassSign] = useState('')
-  const [image, setImage] = useState('')
   const [carType, setCarType] = useState('')
   const [licensePlate, setLicensePlate] = useState('')
   const [disabilityIsChecked, setDisabilityIsChecked] = useState(false)
@@ -22,7 +21,7 @@ function DriverLogin({ setCurrentDriver }) {
   function onSignupSubmit(e) {
     e.preventDefault()
 
-    const driver = { name: nameSign, username: userSign, password: passSign, image: image, car_type: carType, license_plate: licensePlate, service_types: [disability, pets, hauling].join(", ")}
+    const driver = { name: nameSign, username: userSign, password: passSign, car_type: carType, license_plate: licensePlate, service_types: [disability, pets, hauling].join(", ")}
   
     fetch('/drivers', {
       method: 'POST',
@@ -92,7 +91,6 @@ function DriverLogin({ setCurrentDriver }) {
           <input placeholder=" First and Last Name"type="text" value={nameSign} onChange={e => setNameSign(e.target.value)}></input>
           <input placeholder=" Username" type="text" value={userSign} onChange={e => setUserSign(e.target.value)}></input>
           <input placeholder=" Password" type="password" value={passSign} onChange={e => setPassSign(e.target.value)}></input>
-          <input placeholder=" Img URL" type="text" value={image} onChange={e => setImage(e.target.value)}></input>
           <input placeholder=" Car Type" type="text" value={carType} onChange={e => setCarType(e.target.value)}></input>
           <input placeholder=" License Plate" type="text" value={licensePlate} onChange={e => setLicensePlate(e.target.value)}></input>
           <input type="checkbox" value="Disability Support" checked={disabilityIsChecked} onChange={e => handleDisabilityChecked(e)}/>Disability Support
