@@ -64,21 +64,21 @@ function UserLogin({ setCurrentUser }) {
 
   return (
     <div>
-      <div>
-        <form onSubmit={onLoginSubmit}>
+      <div className="user-login-container">
+        <form className="user-login-form" onSubmit={onLoginSubmit}>
           <input placeholder=" Username" type="text" value={userLog} onChange={e => setUserLog(e.target.value)}></input>
-          <input placeholder=" Password"type="password" value={passLog} onChange={e => setPassLog(e.target.value)}></input>
+          <input placeholder=" Password" type="password" value={passLog} onChange={e => setPassLog(e.target.value)}></input>
           <button type="submit">Login</button>
         </form>
       </div>
 
       <div>
-        <form onSubmit={onSignupSubmit}>
-          <input placeholder=" First and Last Name"type="text" value={nameSign} onChange={e => setNameSign(e.target.value)}></input>
-          <input placeholder=" Username" type="text" value={userSign} onChange={e => setUserSign(e.target.value)}></input>
-          <input placeholder=" Password" type="password" value={passSign} onChange={e => setPassSign(e.target.value)}></input>
-          <label> Profile Image: </label>
-          <input type="file" accept="image/*" onChange={e => handleImageInput(e)}/>
+        <form className="user-signup-form" onSubmit={onSignupSubmit}>
+          <input className="user-signup-input" placeholder=" First and Last Name"type="text" value={nameSign} onChange={e => setNameSign(e.target.value)}></input>
+          <input className="user-signup-input" placeholder=" Username" type="text" value={userSign} onChange={e => setUserSign(e.target.value)}></input>
+          <input className="user-signup-input" placeholder=" Password" type="password" value={passSign} onChange={e => setPassSign(e.target.value)}></input>
+          <label className="profile-label"> Profile Image:</label>
+          <input className="profile-input" type="file" accept="image/*" onChange={e => handleImageInput(e)}/>
           <button type="submit">Signup</button>
         </form>
       </div>

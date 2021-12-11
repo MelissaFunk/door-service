@@ -10,33 +10,38 @@ body {
 
 .login {
   margin: auto;
+  width: 80%;
+}
+
+.header {
   width: 60%;
+  height: auto;
+  margin-top: 20px
 }
 
 .login-container {
   display: grid;
   grid-template-columns: 0.5fr 1fr;
-  grid-gap: 0px;
-  margin-top: 50px
+  grid-gap: 30px;
+  margin-top: 30px;
 }
 
-.login img {
+.logo {
   display: block;
-  border-radius: 30px;
-  margin: 10px auto;
-  width: 500px;
+  border-radius: 33px;
+  margin-left: 150px;
   position: relative;
   top: 0px;
   left: 0px;
-  height: 400px;
+  height: 450px;
   width: auto
 }
 
-.login-form {
-  margin-top: 10px
+.login-buttons {
+  margin-right: 120px
 }
 
-.login-form-button {
+.login-button {
   margin-left: 20px;
   margin-bottom: 20px;
   width: 170px;
@@ -47,6 +52,91 @@ body {
   border-color:rgb(74, 74, 74);
   border-width: 3px;
   cursor: pointer
+}
+
+.user-login-container {
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.user-login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-login-form input {
+  width: 250px;
+  height: 30px;
+  padding-left: 5px;
+  border-radius: 5px;
+  border-width: 2px;
+  margin-bottom: 10px;
+  font-size: medium
+}
+
+.user-login-form button {
+  width: 260px;
+  height: 32px;
+  border-radius: 5px;
+  border: none;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+  font-size: medium;
+}
+
+.user-login-form button:hover {
+  background-color: rgb(95, 155, 6);
+}
+
+.user-signup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-signup-input {
+  width: 250px;
+  height: 30px;
+  padding-left: 5px;
+  border-radius: 5px;
+  border-width: 2px;
+  margin-bottom: 10px;
+  font-size: medium
+}
+
+.user-signup-form button {
+  width: 260px;
+  height: 32px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(0, 2, 128);
+  color: white;
+  cursor: pointer;
+  font-size: medium;
+}
+
+.user-signup-form button:hover {
+  background-color: rgb(41, 71, 203);
+}
+
+.profile-label {
+  padding-bottom: 5px;
+}
+
+.profile-input {
+  padding-bottom: 10px;
+  padding-left: 50px;
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 15px;
+  height: 15px;
+  display: inline-flex
 }
 
 

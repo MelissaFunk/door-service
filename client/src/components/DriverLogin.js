@@ -88,26 +88,27 @@ function DriverLogin({ setCurrentDriver }) {
 
   return (
     <div>
-      <div>
-        <form onSubmit={onLoginSubmit}>
-          <input placeholder=" Username" type="text" value={userLog} onChange={e => setUserLog(e.target.value)}></input>
-          <input placeholder=" Password"type="password" value={passLog} onChange={e => setPassLog(e.target.value)}></input>
+      <div className="user-login-container">
+        <form className="user-login-form"onSubmit={onLoginSubmit}>
+          <input className="user-signup-input" placeholder=" Username" type="text" value={userLog} onChange={e => setUserLog(e.target.value)}></input>
+          <input className="user-signup-input" placeholder=" Password"type="password" value={passLog} onChange={e => setPassLog(e.target.value)}></input>
           <button type="submit">Login</button>
         </form>
       </div>
 
       <div>
-        <form onSubmit={onSignupSubmit}>
-          <input placeholder=" First and Last Name"type="text" value={nameSign} onChange={e => setNameSign(e.target.value)}></input>
-          <input placeholder=" Username" type="text" value={userSign} onChange={e => setUserSign(e.target.value)}></input>
-          <input placeholder=" Password" type="password" value={passSign} onChange={e => setPassSign(e.target.value)}></input>
-          <input placeholder=" Car Type" type="text" value={carType} onChange={e => setCarType(e.target.value)}></input>
-          <input placeholder=" License Plate" type="text" value={licensePlate} onChange={e => setLicensePlate(e.target.value)}></input>
-          <input type="checkbox" value="Disability Support" checked={disabilityIsChecked} onChange={e => handleDisabilityChecked(e)}/>Disability Support
-          <input type="checkbox" value="Hauling" checked={haulingIsChecked} onChange={e => handleHaulingChecked(e)}/>Hauling
-          <input type="checkbox" value="Pets" checked={petsIsChecked} onChange={e => handlePetsChecked(e)}/>Pets 
-          <label> Profile Image: </label>
+        <form className="user-signup-form" onSubmit={onSignupSubmit}>
+          <input className="user-signup-input" placeholder=" First and Last Name"type="text" value={nameSign} onChange={e => setNameSign(e.target.value)}></input>
+          <input className="user-signup-input" placeholder=" Username" type="text" value={userSign} onChange={e => setUserSign(e.target.value)}></input>
+          <input className="user-signup-input" placeholder=" Password" type="password" value={passSign} onChange={e => setPassSign(e.target.value)}></input>
+          <input className="user-signup-input" placeholder=" Car Type" type="text" value={carType} onChange={e => setCarType(e.target.value)}></input>
+          <input className="user-signup-input" placeholder=" License Plate" type="text" value={licensePlate} onChange={e => setLicensePlate(e.target.value)}></input>
+          <input className="checkbox" type="checkbox" value="Disability Support" checked={disabilityIsChecked} onChange={e => handleDisabilityChecked(e)}/>Disability Support
+          <input className="checkbox" type="checkbox" value="Hauling" checked={haulingIsChecked} onChange={e => handleHaulingChecked(e)}/>Hauling
+          <input className="checkbox" type="checkbox" value="Pets" checked={petsIsChecked} onChange={e => handlePetsChecked(e)}/>Pets 
+          <label className="profile-image-input"> Profile Image: 
           <input type="file" accept="image/*" onChange={e => handleImageInput(e)}/>
+          </label>
           <button type="submit">Signup</button>
         </form>
       </div>

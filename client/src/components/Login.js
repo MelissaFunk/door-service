@@ -3,22 +3,22 @@ import UserLogin from "./UserLogin"
 import DriverLogin from "./DriverLogin"
 
 function Login({ setCurrentUser, setCurrentDriver }) {
-  const [userClicked, setUserClicked] = useState(false)
+  const [userClicked, setUserClicked] = useState(true)
   const [driverClicked, setDriverClicked] = useState(false)
-  const [userColorChange, setUserColorChange] = useState(false)
+  const [userColorChange, setUserColorChange] = useState(true)
   const [driverColorChange, setDriverColorChange] = useState(false)
 
   const onUserClick = () => {
     setUserClicked(!userClicked)
     setDriverClicked(false)
-    setUserColorChange(userColorChange => !userColorChange)
+    setUserColorChange(!userColorChange)
     setDriverColorChange(false)
   }
 
   const onDriverClick = () => {
     setDriverClicked(!driverClicked)
     setUserClicked(false)
-    setDriverColorChange(driverColorChange => !driverColorChange)
+    setDriverColorChange(!driverColorChange)
     setUserColorChange(false)
   }
 
@@ -30,13 +30,12 @@ function Login({ setCurrentUser, setCurrentDriver }) {
 
   return (
     <div className="login">
-      <h1>DOOR SERVICE</h1>
-      <h3><i>specialized driving services to support your needs</i></h3>
+      <img className="header" src="https://i.imgur.com/CT4xVq8.jpg"/>
       <div className="login-container">
-        <img src="https://i.imgur.com/DhLN1cW.jpg?2"/>
-        <div className="login-form">
-        <button className="login-form-button" style={{background: userBackground, color: userColor}} onClick={onUserClick}>For Passengers</button>
-        <button className="login-form-button" style={{background: driverBackground, color: driverColor}} onClick={onDriverClick}>For Drivers</button>
+        <img className="logo" src="https://i.imgur.com/DhLN1cW.jpg?2"/>
+        <div className="login-buttons">
+        <button className="login-button" style={{background: userBackground, color: userColor}} onClick={onUserClick}>For Passengers</button>
+        <button className="login-button" style={{background: driverBackground, color: driverColor}} onClick={onDriverClick}>For Drivers</button>
         {userClicked ? <UserLogin setCurrentUser={setCurrentUser}/> : null}
         {driverClicked ? <DriverLogin setCurrentDriver={setCurrentDriver}/> : null }
         </div>
