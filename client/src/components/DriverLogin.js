@@ -88,6 +88,9 @@ function DriverLogin({ setCurrentDriver }) {
 
   return (
     <div>
+       <div>
+        {errors ? errors.map(error => (<p key={error}>{error}</p>)) : null}
+      </div>
       <div className="user-login-container">
         <form className="user-login-form"onSubmit={onLoginSubmit}>
           <input className="user-signup-input" placeholder=" Username" type="text" value={userLog} onChange={e => setUserLog(e.target.value)}></input>
@@ -103,18 +106,22 @@ function DriverLogin({ setCurrentDriver }) {
           <input className="user-signup-input" placeholder=" Password" type="password" value={passSign} onChange={e => setPassSign(e.target.value)}></input>
           <input className="user-signup-input" placeholder=" Car Type" type="text" value={carType} onChange={e => setCarType(e.target.value)}></input>
           <input className="user-signup-input" placeholder=" License Plate" type="text" value={licensePlate} onChange={e => setLicensePlate(e.target.value)}></input>
-          <input className="checkbox" type="checkbox" value="Disability Support" checked={disabilityIsChecked} onChange={e => handleDisabilityChecked(e)}/>Disability Support
-          <input className="checkbox" type="checkbox" value="Hauling" checked={haulingIsChecked} onChange={e => handleHaulingChecked(e)}/>Hauling
-          <input className="checkbox" type="checkbox" value="Pets" checked={petsIsChecked} onChange={e => handlePetsChecked(e)}/>Pets 
-          <label className="profile-image-input"> Profile Image: 
-          <input type="file" accept="image/*" onChange={e => handleImageInput(e)}/>
-          </label>
+          <b>Service Options:</b>
+          <table>
+            <tr>
+            <td><input className="checkbox" type="checkbox" value="Disability Support" checked={disabilityIsChecked} onChange={e => handleDisabilityChecked(e)}/></td>
+            <td>Disability Support</td>
+            <td><input className="checkbox" type="checkbox" value="Hauling" checked={haulingIsChecked} onChange={e => handleHaulingChecked(e)}/></td>
+            <td>Hauling</td>
+            <td><input className="checkbox" type="checkbox" value="Pets" checked={petsIsChecked} onChange={e => handlePetsChecked(e)}/></td>
+            <td>Pets</td>
+            </tr>
+            <tr></tr>
+          </table>
+          <label className="profile-label"><b>Profile Image:</b></label>
+          <input className="profile-input" type="file" accept="image/*" onChange={e => handleImageInput(e)}/>
           <button type="submit">Signup</button>
         </form>
-      </div>
-
-      <div>
-        {errors ? errors.map(error => (<p key={error}>{error}</p>)) : null}
       </div>
     </div>
   )

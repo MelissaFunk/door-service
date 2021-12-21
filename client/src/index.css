@@ -14,9 +14,9 @@ body {
 }
 
 .header {
-  width: 60%;
+  width: 600px;
   height: auto;
-  margin-top: 20px
+  margin-top: 20px;
 }
 
 .login-container {
@@ -96,6 +96,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px
 }
 
 .user-signup-input {
@@ -124,7 +125,7 @@ body {
 }
 
 .profile-label {
-  padding-bottom: 5px;
+  padding-bottom: 5px
 }
 
 .profile-input {
@@ -136,7 +137,6 @@ body {
 .checkbox {
   width: 15px;
   height: 15px;
-  display: inline-flex
 }
 
 

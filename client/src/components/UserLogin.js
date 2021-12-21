@@ -64,6 +64,9 @@ function UserLogin({ setCurrentUser }) {
 
   return (
     <div>
+      <div>
+        {errors ? errors.map(error => (<p key={error}>{error}</p>)) : null}
+      </div>
       <div className="user-login-container">
         <form className="user-login-form" onSubmit={onLoginSubmit}>
           <input placeholder=" Username" type="text" value={userLog} onChange={e => setUserLog(e.target.value)}></input>
@@ -77,14 +80,10 @@ function UserLogin({ setCurrentUser }) {
           <input className="user-signup-input" placeholder=" First and Last Name"type="text" value={nameSign} onChange={e => setNameSign(e.target.value)}></input>
           <input className="user-signup-input" placeholder=" Username" type="text" value={userSign} onChange={e => setUserSign(e.target.value)}></input>
           <input className="user-signup-input" placeholder=" Password" type="password" value={passSign} onChange={e => setPassSign(e.target.value)}></input>
-          <label className="profile-label"> Profile Image:</label>
+          <label className="profile-label"><b>Profile Image:</b></label>
           <input className="profile-input" type="file" accept="image/*" onChange={e => handleImageInput(e)}/>
           <button type="submit">Signup</button>
         </form>
-      </div>
-
-      <div>
-        {errors ? errors.map(error => (<p key={error}>{error}</p>)) : null}
       </div>
     </div>
   )
