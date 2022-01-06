@@ -30,9 +30,9 @@ function Login({ setCurrentUser, setCurrentDriver }) {
 
   return (
     <div className="login">
-      <img className="header" src="https://i.imgur.com/CT4xVq8.jpg"/>
+      <img className="header" src="https://i.imgur.com/CT4xVq8.jpg" alt="login-header"/>
       <div className="login-container">
-        <img className="logo" src="https://i.imgur.com/DhLN1cW.jpg?2"/>
+        <img className="logo" src="https://i.imgur.com/DhLN1cW.jpg?2" alt="login-logo"/>
         <div className="login-buttons">
         <button className="login-button" style={{background: userBackground, color: userColor}} onClick={onUserClick}>For Passengers</button>
         <button className="login-button" style={{background: driverBackground, color: driverColor}} onClick={onDriverClick}>For Drivers</button>
