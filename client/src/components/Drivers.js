@@ -41,7 +41,7 @@ function Drivers({ currentUser }) {
         <option value="Hauling">Hauling</option>
         <option value="Pets">Pets</option>
       </select>
-      {displayedDrivers()}
+      <div className="all-drivers">{displayedDrivers()}</div>
     </div>
   )
 }

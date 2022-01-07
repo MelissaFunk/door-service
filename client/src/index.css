@@ -198,7 +198,7 @@ body {
   border-color: white;
   border-width: 3px
 }
-
+ 
 .navbar-btn {
   display: inline-block;
   position: relative;
@@ -237,4 +237,54 @@ body {
 .navbar-btn-logout:hover {
   background: yellow;
   color: rgb(74, 74, 74)
+}
+
+/* DRIVERS */
+
+.all-drivers {
+  margin-top: 20px;
+  margin-bottom: 20px
+}
+
+.driver-card {
+  display: inline-grid;
+  border: 2px solid black;
+  width: 250px;
+  height: auto;
+  margin-right: 20px
+}
+
+.driver-card h3 {
+  margin: 0;
+  padding: 0;
+  line-height: 60px;
+}
+
+.driver-card img {
+  height: 250px;
+  width: auto
+}
+
+.driver-details {
+  text-align: start;
+  margin-left: 30px;
+  margin-bottom: 10px
+}
+
+.driver-details p {
+  margin: 0;
+  padding: 0;
+  line-height: 30px;
+}
+
+.driver-card button {
+  height: 30px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px
+}
+
+.driver-card button:hover {
+  background-color: yellow
 }
