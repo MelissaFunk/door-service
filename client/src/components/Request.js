@@ -37,19 +37,18 @@ function Request({ trigger, setTrigger, driver, currentUser }) {
           setClicked(false)
         }}>X</button>
         <h2>Request {driver.name}</h2>
-        <form onSubmit={e => handleRequestSubmit(e)}>
-        <label>Service Type: </label>
-          <select name="service_type">
+        <form className="request-form" onSubmit={e => handleRequestSubmit(e)}>
+          <select className="request-select" name="service_type">
             {driver.service_types.includes("Disability Support") ? <option value="Disability Support">Disability Support</option> : null}
             {driver.service_types.includes("Hauling") ? <option value="Hauling">Hauling</option> : null}
             {driver.service_types.includes("Pets") ? <option value="Pets">Pets</option> : null}
           </select>
-          <input type="text" name="starting_address" placeholder="Starting Address"></input>
-          <input type="text" name="ending_address" placeholder="Ending Address"></input>
-          <input type="date" name="date"></input>
-          <input type="time" name="time"></input> PST
-          <textarea name="message" placeholder="Message"></textarea>
-          <button onClick={handleClick}>Send Request</button>
+          <input className="request-input" type="text" name="starting_address" placeholder="Starting Address"></input>
+          <input className="request-input" type="text" name="ending_address" placeholder="Ending Address"></input>
+          <input className="request-input" type="date" name="date"></input>
+          <input className="request-input" type="time" name="time"></input>
+          <textarea className="request-message" name="message" placeholder="Message"></textarea>
+          <button className="request-button" onClick={handleClick}>Send Request</button>
         </form>
         {clicked ? <p>Thank you for your request! Your driver will accept your request shortly in your <a href="my-services">current services</a>.</p> : null}
       </div>

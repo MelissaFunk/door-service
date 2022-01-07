@@ -277,7 +277,7 @@ body {
   line-height: 30px;
 }
 
-.driver-card button {
+.request-driver-btn {
   height: 30px;
   background-color: white;
   border: none;
@@ -285,6 +285,44 @@ body {
   font-size: 14px
 }
 
-.driver-card button:hover {
+.request-driver-btn:hover {
+  background-color: yellow
+}
+
+.request-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
+}
+
+.request-input {
+  width: 300px;
+  margin-bottom: 10px;
+}
+
+.request-select {
+  width: 300px;
+  margin-bottom: 10px
+}
+
+.request-message {
+  width: 300px;
+  height: 50px;
+  margin-bottom: 10px
+}
+
+.request-button {
+  width: 150px;
+  height: 25px;
+  background-color:rgb(141, 178, 235);
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 4px;
+  cursor: pointer
+}
+
+.request-button:hover {
   background-color: yellow
 }

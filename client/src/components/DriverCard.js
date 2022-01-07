@@ -15,7 +15,7 @@ function DriverCard({ driver, currentUser }) {
           <li key={service}>{service}</li>  
         )}
       </div>
-      <button onClick={() => setButtonPopup(true)}>Request Driver</button>
+      <button className="request-driver-btn" onClick={() => setButtonPopup(true)}>Request Driver</button>
       <Request trigger={buttonPopup} setTrigger={setButtonPopup} driver={driver} currentUser={currentUser}/>
     </div>
   )
